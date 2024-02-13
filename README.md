@@ -1,7 +1,7 @@
-### devops-linux
+# devops-linux
 
 
-# Linux Hierarchy: -
+### Linux Hierarchy: -
 
         •	bin -> usr/bin
         •	boot
@@ -24,34 +24,34 @@
         •	usr
         •	Var
 
-# Root: -
+### Root: -
 
         • It is the home directory for the root user (Super User).
         • It provides the working environment for the root user.
 
-# Home: -
+### Home: -
 
         • It is the home directory for other users.
         • It provides a working environment for other users (excluding root).
 
-# Usr: -
+### Usr: -
 
         •	By default, all softwares are installed in this directory.
  
-# Bin: -
+### Bin: -
 
         •	It contains commands used by all users except root. 
 
-# Sbin: -
+### Sbin: -
 
         •	It contains commands used by only super user (root).
 
-# Var: -
+### Var: -
 
         •	It is containing variables data like mails, log files of services.
  
 
-# Basic commands: -
+### Basic commands: -
 
 | Command  | Usage                                                                |
 |----------|----------------------------------------------------------------------|
@@ -67,7 +67,7 @@
 
  
 
-# Create & delete a file or directory: -
+### Create & delete a file or directory: -
 
 | Command         | Usage                                                |
 |-----------------|------------------------------------------------------|
@@ -81,7 +81,7 @@
 | rm -rf          | Remove a directory if it has any files or directories|
 
 
-# Managing files or Directories: -
+### Managing files or Directories: -
 
 | Command | Description                                    |
 |---------|------------------------------------------------|
