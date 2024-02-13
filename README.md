@@ -99,8 +99,8 @@
 
 ### Copy Syntax: -
 
-•       cp <source file> <destination file>
-•	cp <source path> <destination path>  
+        •       cp <source file> <destination file> 
+        •	cp <source path> <destination path>  
         
 #### Example: -
                 •	cp  file1  file2
@@ -112,11 +112,11 @@
         •	mv <source file> <destination file>
         •	mv <source path> <destination path>
         
-        Example: -
+#### Example: -
                 •	mv file1 file2
                 •	mv file1  /home/file2
                 •	mv /home/file1 /etc/file200
-        Note: -
+#### Note: -
                 •       Moving a file is used to either rename the file or relocate it from one place to another.
                 •       If the file already exists in the destination, it will overwrite the data. If not, a new file will be created, and the data will be written into it.
 
@@ -132,7 +132,7 @@
 | -group | For files belonging to a particular group   |
 
 
-        Example: -
+#### Example: -
                 •	find / -name file1 --->It is searching for file1 in the entire Linux.
 
 ### Diff Command: -
