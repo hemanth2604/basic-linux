@@ -149,12 +149,14 @@
         •	grep <patron> filename
         
 #### Example: -
-        •	grep Gayathri file1 ---> If the word is same in the file then it is print.
+        •	grep Hi file1                           ---> If the word is available with case-sensitive in the file then it is print.
         •	grep Gateway /etc/ssh/sshd_config
-        •	grep -i gateway /etc/ssh/sshd_config ---> It is print the case-sensitive.
-        •	Grep command will work on files only not on directories.
-        •	ls -l | grep dir1	>>then it works on directories.
-        •	ls -l | grep ^d >>It shows the first letter d starting files/directories.
+        •	grep -i gateway /etc/ssh/sshd_config    ---> It is printthe word and i means ignore the case-sensitive.
+##### Note: -
+Grep command will only work files only not for directories.
+
+        •	ls -l | grep dir1	--->It will search for dir1 from the output.
+        •	ls -l | grep ^d         --->It will show only words that start with 'd'.
 
 
 ### Sed Command: -
@@ -164,48 +166,70 @@ Which is used to search a word in the file and replace it with the word required
         •       It will modify the output, but there will no change in the original file
 
 #### Syntax: -
-        •	sed ‘s/old_text/new_text/’ file_name    ---> Replace the text if the text is
-        •	sed ‘s/old_text/new_text/g’ file_name   ---> Replace the text if the text is part of the word.
-        •	sed -i ‘s/old_text/new_text/’ file_name --->Replace the text and update the file.
+        •	sed ‘s/old_text/new_text/’ file_name    ---> Replace the text case-sensitive if the text is a seperate word in the output not in the file
+        •	sed ‘s/old_text/new_text/g’ file_name   ---> Replace the text case-sensitive if the text is part of the word or a seperate word in the output not in the file.
+        •	sed ‘s/old_text/new_text/ig’ file_name  ---> Replace the text and ignore the case-sensitive if the text is part of the word or a seperate word in the output not in the file.
+        •	sed -i ‘s/old_text/new_text/’ file_name --->Replace the text in the output and update in the file.
         •	sed -n ‘5,10p, file_name                --->It will display the lines from 5-10 only
-        •	sed ’10,20d’ file_name                  --->It will delete the lines from 10,20 and print.
+        •	sed ’10,20d’ file_name                  --->It will delete the lines from 10,20 and print not delete in actual file.
 
 #### Example: -
-        •	sed 's/Gayathri/Sarvani/' file2
-        •	sed 's/thri/Sarvani/g' file2  
-        •	Sed  's/thri/Sarvani/ig' file2 >> i means ignore the case sensitive.
-        •	Sed  -i 's/thri/Sarvani/ig' file2 
-        •	sed -i 's/Gayathri/Sarvani/' file2
+        •	sed 's/Hi/Hello/' file2
+        •	sed 's/Gold/Silver/g' file2  
+        •	Sed 's/gold/silver/ig' file2
+        •	Sed  -i 's/gold/silver/ig' file2 
         •	sed  -n  '1,2p' file2
         •	sed  -n '1p' file2
-        •	sed '1d' file2   >> It will delete in the output not actual file
-        •	sed ‘1,2d’ file2 >> It will delete in the output not actual file
+        •	sed '1d' file2          ---> It will delete in the output not actual file
+        •	sed ‘1,2d’ file2        ---> It will delete in the output not actual file
 
  
-User Management
-
- 
+### User Management
 
 
-Type	Example	Home Directory	Shell
-Super User	Root	root	bin/bash
-System User	ftp, ssh, apache	var/ftp, etc	sbin/nologin
-Normal User	Visitor, ec2-user	home/username	bin/bash
+| Type         | Example          | Home Directory | Shell         |
+|--------------|------------------|----------------|---------------|
+| Super User   | Root             | /root          | /bin/bash     |
+| System User  | ftp, ssh, apache | /var/ftp, /etc | /sbin/nologin |
+| Normal User  | created, ec2-user| /home/username | /bin/bash     |
 
-User Add and Permissions: - Syntax: -
-•	useradd <option> <username>
-Example: -
-•	useradd nani
-•	Working directory for nani user is /home/nani. All the user’s working directory is
-/home
-•	If we created a user automatically a group has been created with user name  uid=1001(nani) gid=1001(nani) groups=1001(nani)
-•	Enable the password base authentication in /etc/ssh/sshd_config file as yes and reload or restart the sshd service. service sshd restart/reload.
-•	If you want see the users cd/home or cat /etc/passwd
 
+#### User-add
+
+#### Syntax: -
+        •	useradd <option> <username>
+
+| Option             | Description                                                                |
+|--------------------|----------------------------------------------------------------------------|
+| -c or --comment    | Specify a comment or description for the new user                          |
+| -m or --create-home| Create a home directory for the new user                                   |
+| -s or --shell      | Specify the login shell for the new user                                   |
+| -g or --gid        | Specify the primary group for the new user                                 |
+| -G or --groups     | Specify supplementary groups for the new user (comma-separated group list) |
+
+
+#### Example: -
+
+        •	sudo useradd nani
+
+#### note: -
+
+We created a user named 'nani' is creating automatically, a group with the same name 'nani' is also created, uid=1001(nani) gid=1001(nani) groups=1001(nani).. The user's working directory is created under the '/home' directory, specifically '/home/nani'. All users' working directories are typically created under the '/home' directory.
+
+#### password authentication: -
+
+        •	sudo passwd nani
+
+After setting the password for the user, you need to enable password-based authentication in the /etc/ssh/sshd_config file by setting it to "yes", and then reload or restart the sshd service. To do this, you can edit the /etc/ssh/sshd_config file and change the PasswordAuthentication parameter to "yes".
+
+        sudo nano /etc/ssh/sshd_config
+        PasswordAuthentication yes
+        sudo systemctl reload sshd
+        sudo systemctl restart sshd
 
 Permissions to a file/directories: -
 
- 
+ ![Alt text](image.png)
 
 
  
