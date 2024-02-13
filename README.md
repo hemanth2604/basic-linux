@@ -99,8 +99,8 @@
 
 ### Copy Syntax: -
 
-        •       cp <source file> <destination file>
-        •	cp <source path> <destination path>  
+•       cp <source file> <destination file>
+•	cp <source path> <destination path>  
         
 #### Example: -
                 •	cp  file1  file2
