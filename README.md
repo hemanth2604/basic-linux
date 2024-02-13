@@ -227,78 +227,145 @@ After setting the password for the user, you need to enable password-based authe
         sudo systemctl reload sshd
         sudo systemctl restart sshd
 
-Permissions to a file/directories: -
+### User modifications: -
 
- ![Alt text](image.png)
+#### Syntax: -
 
+        sudo usermod <option> username
 
+| Option                | Description                                                                   |
+|-----------------------|-------------------------------------------------------------------------------|
+| -u user id            | Changes the user ID of the specified user                                     |
+| -G Secondary group id | Adds the user to a supplementary group. You need to specify the group ID      |
+| -g Primary group id   | Changes the primary group of the user. You need to specify the group ID       |
+| -d Home directory     | Changes the home directory of the user                                        |
+| -c Comment            | Adds a comment to the user's account information                              |
+| -s Shell              | Changes the login shell of the user                                           |
+
+#### Examples
+
+Change the login shell for a user:
  
+        sudo usermod -s /bin/bash john
 
-File permissions on Directory: -
- 
+This command changes the login shell of the user "john" to "/bin/bash".
 
+Change the home directory for a user:
 
-Chown Command: -
-•	It is changing the ownership of the file. It is executable by root user only.
+        sudo usermod -d /home/newhome john
 
-Syntax: -
-chown  <username>	<filename> It is changing the owner of a file.
-Example: -
-chown  gayathri file1
- 
-•	It is changing the owner and group access of the file.
-Syntax: -
-chown <username> <groupname> <filename> It is changing the permission of the owner.
-Example: -
-Sudo chown gayathri:gayathri file1 >>Now the file owner and group owned by Gayathri User Modifications: -
-Options: -
-•	-u user id
-•	-G Secondary group id
-•	-g Primary group id
-•	-d Home directory
-•	-c Comment
-•	-s Shell
+This command changes the home directory of the user "john" to "/home/newhome".
 
-Example: -
-•	usermod -G gayathri nani
-uid=1002(gayathri) gid=1002(gayathri) groups=1002(gayathri),1001(nani) Means nani user added to the gayathri group.
+Add a user to an additional group:
 
-•	usermod  -g nani gayathri
-uid=1002(gayathri) gid=1001(nani) groups=1001(nani),1002(gayathri) Means gid and groups are changed to nani user.
-Removing the Groups user: -
-•	gpasswd -d <Owner User> <Remove User>
-Example: -
-•	uid=1002(gayathri) gid=1002(gayathri) groups=1002(gayathri),1001(nani)
-•	gpasswd -d nani  gayathri
-Error: -
-Removing user nani from group gayathri gpasswd: user 'nani' is not a member of 'gayathri'
-•	gpasswd -d gayathri nani
- 
-File Permissions: -
-•	We will use the numbers and also symbols. The permissions edited either owner or the root user.
-Read	-	4
-Write	-	2
-Execute	-	1
+        sudo usermod -aG newgroup john
+
+This command adds the user "john" to the supplementary group "newgroup".
+
+Change the primary group of a user:
+
+        sudo usermod -g newprimarygroup john
+
+This command changes the primary group of the user "john" to "newprimarygroup".
+
+Change the user ID (UID) of a user:
+
+        sudo usermod -u 1001 john
+
+This command changes the UID of the user "john" to 1001.
 
 
-Example: -
 
-•	chmod	777	file1
-•	chmod	765	file2
+### Permissions to a file/directories: -
+
+In Linux, permissions to files and directories are governed by three sets of permissions: read, write, and execute. These permissions are assigned to three classes of users: owner, group, and others.
+
+Here's how permissions are represented and what they mean:
+
+        Read (r): If a user has read permission, they can view the contents of a file or list the contents of a directory.
+        Write (w): If a user has write permission, they can modify the contents of a file or create, delete, or rename files within a directory.
+        Execute (x): For files, execute permission allows the user to execute the file as a program or script. For directories, execute permission allows the user to enter the directory and access its contents.
+Permissions are represented by a 10-character string. The first character indicates the file type (regular file, directory, symbolic link, etc.), and the next nine characters represent the permissions for the owner, group, and others in groups of three.
+
+        -rwxrwxrwx
+
+Here's what this means:
+
+The first character '-' denotes that it's a regular file.
+The next three characters 'rwx' indicate that the owner has read, write, and execute permissions.
+The next three characters 'r-x' indicate that the group has read and execute permissions, but not write permission.
+The last three characters 'r--' indicate that others have only read permission.
+
+In the octal representation, each permission is represented by a three-bit number:
+
+        Read (r) is represented by 4.
+        Write (w) is represented by 2.
+        Execute (x) is represented by 1.
+
+Here are some common combinations:
+
+        Read and write: 4 (read) + 2 (write) + 0 (no execute) = 6
+        Read and execute: 4 (read) + 0 (no write) + 1 (execute) = 5
+        Read, write, and execute: 4 (read) + 2 (write) + 1 (execute) = 7
+        Read only: 4 (read) + 0 (no write) + 0 (no execute) = 4
+        Write only: 0 (no read) + 2 (write) + 0 (no execute) = 2
+        Execute only: 0 (no read) + 0 (no write) + 1 (execute) = 1
+
+To modify permissions, you can use the chmod command. For example:
+
+        chmod 540 filename/directoryname
+
+### Chown Command: -
+
+is used to change the ownership of files and directories. It allows you to change both the owner user and the owner group of a file or directory. It is executable by root user only.
+
+#### Syntax: -
+
+        chown  <option> <new owner>:<new group> <filename>
+
+Here's what each part of the command means:
+
+        OPTIONS: This specifies any additional options you want to use with the chown command. Some common options include -R to recursively change ownership for directories and their contents, and -v for verbose mode, which displays a message for each file processed.
+        NEW_OWNER: This specifies the new owner user for the file or directory.
+        NEW_GROUP: This specifies the new owner group for the file or directory. If you omit :NEW_GROUP, only the owner user will be changed.
+
+#### Example: -
 
 
-System Management Commands
+##### Change the owner of a file:
+
+        chown newowner filename
+
+##### Change the owner and group of a file:
+
+        chown newowner:newgroup filename
+
+##### Change the owner of a directory and all its contents recursively:
+
+        chown -R newowner directory
+
+##### Change the group of a file without changing the owner:
+
+        chown :newgroup filename
+
+##### Verbose mode: Display a message for each file processed:
+
+        chown -v newowner:newgroup filename
+
+### System Management Commands
 
 
-Command	Description
-history	List all commands executed by a user
-free	Free memory of a server
-/proc/meminfo	Display memory information
-/proc/cpuinfo	Display CPU information
-uname -a	Show kernel information
-du	Show directory space usage
-whereis	Show possible locations of app
-which	Show which app will be run by default
+| Command       | Description                                      |
+|---------------|--------------------------------------------------|
+| history       | List all commands executed by a user             |
+| free          | Free memory of a server                          |
+| /proc/meminfo | Display memory information                       |
+| /proc/cpuinfo | Display CPU information                          |
+| uname -a      | Show kernel information                          |
+| du            | Show directory space usage                       |
+| whereis       | Show possible locations of an application        |
+| which         | Show which application will be run by default    |
+
 
 •	Free command will show the memory details in KB’s. If you want in MB’s then
 execute free –m command.
