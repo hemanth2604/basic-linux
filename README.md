@@ -97,35 +97,44 @@
 | file    | Show what kind of file it is                   |
 
 
-Copy Command: - Syntax: -
-•	cp	<source file>	<destination file>
-•	cp	<source path> <destination path>
-Example: -
-•	cp  file1  file2
-•	cp  file1  /home/file2
-•	cp  /home/file2	/etc/file1
+### Copy Syntax: -
+
+        •       cp	<source file>	<destination file>
+        •	cp	<source path> <destination path>  
+        
+        Example: -
+                •	cp  file1  file2
+                •	cp  file1  /home/file2
+                •	cp  /home/file2	/etc/file1
  
-Move Command: - Syntax: -
-•	mv <source file> <destination file>
-•	mv <source path> <destination path>
-Example: -
-•	mv file1 file2
-•	mv file1  /home/file2
-•	mv /home/file1 /etc/file200
-Note: -
-•	Move a file is used to rename the file name, Move the file from one place to another place.
-•	If the file is created it will overwrite the data if not the file is created and write the data in that file.
-Find Command: -
-Syntax: -
-•	find / -option filename
+### Move Syntax: -
 
-Option	Usage
--name	For searching a file with its name
--user	For files whose owner is a particular user
--group	For files belonging to particular group
+        •	mv <source file> <destination file>
+        •	mv <source path> <destination path>
+        
+        Example: -
+                •	mv file1 file2
+                •	mv file1  /home/file2
+                •	mv /home/file1 /etc/file200
+        Note: -
+                •       Moving a file is used to either rename the file or relocate it from one place to another.
+                •       If the file already exists in the destination, it will overwrite the data. If not, a new file will be created, and the data will be written into it.
 
-Example: -
-•	find / -name file1 >>It is searching for file1 in the entire Linux.
+### Find Command: -
+        
+        Syntax: -
+                •	find / -option filename
+
+| Option | Usage                                       |
+|--------|---------------------------------------------|
+| -name  | For searching a file with its name          |
+| -user  | For files whose owner is a particular user  |
+| -group | For files belonging to a particular group   |
+
+
+        Example: -
+                •	find / -name file1 --->It is searching for file1 in the entire Linux.
+
 Diff Command: -
 Syntax: -
 •	diff <filename> <filename>
