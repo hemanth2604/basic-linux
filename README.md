@@ -103,9 +103,9 @@
         •	cp <source path> <destination path>  
         
 #### Example: -
-                •	cp  file1  file2
-                •	cp  file1  /home/file2
-                •	cp  /home/file2	/etc/file1
+        •	cp  file1  file2
+        •	cp  file1  /home/file2
+        •	cp  /home/file2	/etc/file1
  
 ### Move Syntax: -
 
@@ -113,17 +113,17 @@
         •	mv <source path> <destination path>
         
 #### Example: -
-                •	mv file1 file2
-                •	mv file1  /home/file2
-                •	mv /home/file1 /etc/file200
+        •	mv file1 file2
+        •	mv file1  /home/file2
+        •	mv /home/file1 /etc/file200
 #### Note: -
-                •       Moving a file is used to either rename the file or relocate it from one place to another.
-                •       If the file already exists in the destination, it will overwrite the data. If not, a new file will be created, and the data will be written into it.
+        •       Moving a file is used to either rename the file or relocate it from one place to another.
+        •       If the file already exists in the destination, it will overwrite the data. If not, a new file will be created, and the data will be written into it.
 
 ### Find Command: -
         
-        Syntax: -
-                •	find / -option filename
+#### Syntax: -
+        •	find / -option filename
 
 | Option | Usage                                       |
 |--------|---------------------------------------------|
@@ -133,28 +133,28 @@
 
 
 #### Example: -
-                •	find / -name file1 --->It is searching for file1 in the entire Linux.
+        •	find / -name file1 --->It is searching for file1 in the entire Linux.
 
 ### Diff Command: -
 
-        Syntax: -
-                •	diff <filename> <filename>
+#### Syntax: -
+        •	diff <filename> <filename>
         
-        Example: -
-                •	diff file1 file2 --->It shows the difference between two files.
+#### Example: -
+        •	diff file1 file2 --->It shows the difference between two files.
  
 ### Grep Command: -
 
-        Syntax: -
-                •	grep <patron> filename
+#### Syntax: -
+        •	grep <patron> filename
         
-        Example: -
-                •	grep Gayathri file1 ---> If the word is same in the file then it is print.
-                •	grep Gateway /etc/ssh/sshd_config
-                •	grep -i gateway /etc/ssh/sshd_config ---> It is print the case-sensitive.
-                •	Grep command will work on files only not on directories.
-                •	ls -l | grep dir1	>>then it works on directories.
-                •	ls -l | grep ^d >>It shows the first letter d starting files/directories.
+#### Example: -
+        •	grep Gayathri file1 ---> If the word is same in the file then it is print.
+        •	grep Gateway /etc/ssh/sshd_config
+        •	grep -i gateway /etc/ssh/sshd_config ---> It is print the case-sensitive.
+        •	Grep command will work on files only not on directories.
+        •	ls -l | grep dir1	>>then it works on directories.
+        •	ls -l | grep ^d >>It shows the first letter d starting files/directories.
 
 
 ### Sed Command: -
@@ -163,23 +163,23 @@ Which is used to search a word in the file and replace it with the word required
 #### Note: -
         •       It will modify the output, but there will no change in the original file
 
-        Syntax: -
-                •	sed ‘s/old_text/new_text/’ file_name    ---> Replace the text if the text is
-                •	sed ‘s/old_text/new_text/g’ file_name   ---> Replace the text if the text is part of the word.
-                •	sed -i ‘s/old_text/new_text/’ file_name --->Replace the text and update the file.
-                •	sed -n ‘5,10p, file_name                --->It will display the lines from 5-10 only
-                •	sed ’10,20d’ file_name                  --->It will delete the lines from 10,20 and print.
+#### Syntax: -
+        •	sed ‘s/old_text/new_text/’ file_name    ---> Replace the text if the text is
+        •	sed ‘s/old_text/new_text/g’ file_name   ---> Replace the text if the text is part of the word.
+        •	sed -i ‘s/old_text/new_text/’ file_name --->Replace the text and update the file.
+        •	sed -n ‘5,10p, file_name                --->It will display the lines from 5-10 only
+        •	sed ’10,20d’ file_name                  --->It will delete the lines from 10,20 and print.
 
-        Example: -
-                •	sed 's/Gayathri/Sarvani/' file2
-                •	sed 's/thri/Sarvani/g' file2  
-                •	Sed  's/thri/Sarvani/ig' file2 >> i means ignore the case sensitive.
-                •	Sed  -i 's/thri/Sarvani/ig' file2 
-                •	sed -i 's/Gayathri/Sarvani/' file2
-                •	sed  -n  '1,2p' file2
-                •	sed  -n '1p' file2
-                •	sed '1d' file2   >> It will delete in the output not actual file
-                •	sed ‘1,2d’ file2 >> It will delete in the output not actual file
+#### Example: -
+        •	sed 's/Gayathri/Sarvani/' file2
+        •	sed 's/thri/Sarvani/g' file2  
+        •	Sed  's/thri/Sarvani/ig' file2 >> i means ignore the case sensitive.
+        •	Sed  -i 's/thri/Sarvani/ig' file2 
+        •	sed -i 's/Gayathri/Sarvani/' file2
+        •	sed  -n  '1,2p' file2
+        •	sed  -n '1p' file2
+        •	sed '1d' file2   >> It will delete in the output not actual file
+        •	sed ‘1,2d’ file2 >> It will delete in the output not actual file
 
  
 User Management
