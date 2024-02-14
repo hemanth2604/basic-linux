@@ -472,7 +472,7 @@ It is used that the destination/target server has available or not.
 
 wget command is used to download the packages.
 
-•	wget https://dlcdn.apache.org/tomcat/tomcat-9/v9.0.56/bin/apache-tomcat- 9.0.56.tar.gz
+        wget https://dlcdn.apache.org/tomcat/tomcat-9/v9.0.56/bin/apache-tomcat- 9.0.56.tar.gz
 
 #### curl
 
@@ -606,6 +606,7 @@ tar command will works on directories. If you want to zip the directory then use
         c = compress
         v = verbose
         f = file
+
         tar -cvf 789.tar 789
 
 Then it is created a compressed verbose file and still we have the source directory also. The cvf file will be converted as a zip file because it is a file.
@@ -637,7 +638,7 @@ Execute a job at 2:00 PM on every Saturday 00 14 * * 6 <command>
 Execute a job at 12:00 AM on 1st July 00 00 01 06 * <command>
 Execute a job at 3:30 PM on Every month 25th 30 15 25 * * <command>
 
-Min	Hours	Date	Month	Day of the week
+| Min | Hours | Date | Month | Day of the week
  
 
 ### Link Files
