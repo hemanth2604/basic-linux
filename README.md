@@ -632,11 +632,12 @@ It is used for scheduling a job.
         crontab -l 
         crontab -e
 
-##### syntax      
-Execute a job at 8:30 on everyday morning 30 8 * * * <command>
-Execute a job at 2:00 PM on every Saturday 00 14 * * 6 <command>
-Execute a job at 12:00 AM on 1st July 00 00 01 06 * <command>
-Execute a job at 3:30 PM on Every month 25th 30 15 25 * * <command>
+##### syntax 
+     
+        Execute a job at 8:30 on everyday morning 30 8 * * * <command>
+        Execute a job at 2:00 PM on every Saturday 00 14 * * 6 <command>
+        Execute a job at 12:00 AM on 1st July 00 00 01 06 * <command>
+        Execute a job at 3:30 PM on Every month 25th 30 15 25 * * <command>
 
 | Min | Hours | Date | Month | Day of the week
  
