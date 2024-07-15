@@ -154,7 +154,7 @@ If the file already exists in the destination, it will overwrite the data. If no
 
 ##### Syntax: -
 
-        grep <patron> filename
+        grep <options> <pattern> filename
         
 ##### Example: -
 
